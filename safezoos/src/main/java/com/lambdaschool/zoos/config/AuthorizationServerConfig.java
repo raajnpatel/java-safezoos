@@ -51,12 +51,18 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                   .accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS);
     }
 
+//    @Override
+//    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception
+//    {
+//        endpoints.tokenStore(tokenStore)
+//                 .authenticationManager(authenticationManager);
+//        endpoints.pathMapping("/oauth/token",
+//                              "/raajn");
+//    }
+
     @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception
-    {
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.tokenStore(tokenStore)
-                 .authenticationManager(authenticationManager);
-        endpoints.pathMapping("/oauth/token",
-                              "/login");
+                .authenticationManager(authenticationManager);
     }
 }
