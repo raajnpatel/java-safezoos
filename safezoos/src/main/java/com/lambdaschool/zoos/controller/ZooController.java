@@ -17,10 +17,20 @@ public class ZooController
     @Autowired
     private ZooService zooService;
 
+    @GetMapping(value = "/zoos/{id}",
+            produces = {"application/json"})
+    public ResponseEntity<?> findZooById(@PathVariable long id)
+    {
+        Zoo z = zooService.findZooById(id);
+        return new ResponseEntity<>(z, HttpStatus.OK);
+    }
+
     // GET: localhost:2019/zoos/zoos
     @GetMapping(value = "/zoos", produces = {"application/json"})
     public ResponseEntity<?> listAllZoos()
     {
         return new ResponseEntity<>(zooService.findAll(), HttpStatus.OK);
     }
+
+
 }
