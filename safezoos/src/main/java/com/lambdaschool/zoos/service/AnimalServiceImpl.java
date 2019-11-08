@@ -2,17 +2,25 @@ package com.lambdaschool.zoos.service;
 
 import com.lambdaschool.zoos.model.Animal;
 import com.lambdaschool.zoos.repository.AnimalRepository;
+import com.lambdaschool.zoos.view.JustTheCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service(value = "animalService")
 public class AnimalServiceImpl implements AnimalService
 {
     @Autowired
     private AnimalRepository animalrepos;
+
+    @Override
+    public List<JustTheCount> getCountZooAnimals()
+    {
+        return animalrepos.getCountZooAnimals();
+    }
 
     @Override
     public ArrayList<Animal> findAll()
